@@ -13,13 +13,13 @@ app.controller('manageCtrl', function ($scope, $http, $state) {
       $http.post('http://localhost:3000/managers/newProperty', property)
         .then(function(data) {
           console.log(data);
+          $state.go($state.current, {}, {reload: true});
         })
         .catch(function(error) {
           console.log(error);
         })
-        $state.go($state.current, {}, {reload: true});
     }
-    
+
     $scope.addApt = function(apartment) {
       console.log(apartment);
       if (apartment.isAvail === 'true') {
@@ -29,11 +29,11 @@ app.controller('manageCtrl', function ($scope, $http, $state) {
       $http.post('http://localhost:3000/managers/newApartment', apartment)
         .then(function(data) {
           console.log(data);
+          $state.go($state.current, {}, {reload: true});
         })
         .catch(function(error) {
           console.log(error);
         })
-        $state.go($state.current, {}, {reload: true});
     }
 
 });
