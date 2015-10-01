@@ -1,6 +1,6 @@
 app.controller('propCtrl', function ($scope, $http) {
-  
-  $http.get('http://localhost:3000/managers/properties')
+
+  $http.get('http://localhost:3000/managers/properties/' + propertyId)
     .then(function(data) {
       console.log(data);
       $scope.propertiesList = data.data;
@@ -8,24 +8,5 @@ app.controller('propCtrl', function ($scope, $http) {
     .catch(function(error) {
       console.log(error);
     })
-
-    $scope.addProp = function(property) {
-      $http.post('http://localhost:3000/managers/newProperty', property)
-        .then(function(data) {
-          console.log(data);
-        })
-        .catch(function(error) {
-          console.log(error);
-        })
-    }
-    $scope.addApt = function(apartment) {
-      $http.post('http://localhost:3000/managers/newProperty', apartment)
-        .then(function(data) {
-          console.log(data);
-        })
-        .catch(function(error) {
-          console.log(error);
-        })
-    }
 
 });

@@ -19,7 +19,7 @@ app.controller('manageCtrl', function ($scope, $http) {
         })
     }
     $scope.addApt = function(apartment) {
-      $http.post('http://localhost:3000/managers/newProperty', apartment)
+      $http.post('http://localhost:3000/managers/newApartment', apartment)
         .then(function(data) {
           console.log(data);
         })

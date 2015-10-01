@@ -33,7 +33,7 @@
           <label class="control-label col-sm-4" for="gender">Property:</label>
           <div class="col-sm-4">
             <select class="form-control" id="gender" ng-model="apartment.property">
-              <option value="None">{{n}}</option>
+              <option value="None" ng-repeat="n in propertiesList">{{n.name}}</option>
             </select>
           </div>
         </div>
@@ -62,9 +62,9 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-4" for="name">Bedrooms:</label>
+        <label class="control-label col-sm-4" for="name">Rent:</label>
         <div class="col-sm-4">
-          <input autofocus class="form-control" id="name" ng-model="apartment.bedrooms" type="number">
+          <input autofocus class="form-control" id="name" ng-model="apartment.rent" type="number">
         </div>
       </div>
       <div class="form-group">
