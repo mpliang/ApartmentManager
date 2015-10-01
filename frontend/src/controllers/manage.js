@@ -1,4 +1,4 @@
-app.controller('manageCtrl', function ($scope, $http) {
+app.controller('manageCtrl', function ($scope, $http, $state) {
   $scope.message = 'Enter email and password';
   $http.get('http://localhost:3000/managers/properties')
     .then(function(data) {
@@ -17,8 +17,15 @@ app.controller('manageCtrl', function ($scope, $http) {
         .catch(function(error) {
           console.log(error);
         })
+        $state.go($state.current, {}, {reload: true});
     }
+    
     $scope.addApt = function(apartment) {
+      console.log(apartment);
+      if (apartment.isAvail === 'true') {
+        apartment.isAvail = true;
+      } else {apartment.isAvail = false}
+
       $http.post('http://localhost:3000/managers/newApartment', apartment)
         .then(function(data) {
           console.log(data);
@@ -26,6 +33,7 @@ app.controller('manageCtrl', function ($scope, $http) {
         .catch(function(error) {
           console.log(error);
         })
+        $state.go($state.current, {}, {reload: true});
     }
 
 });
